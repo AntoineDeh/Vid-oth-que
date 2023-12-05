@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\VideoTheque",
+    "\\VideoTheque\\Repositories",
+    "\\VideoTheque\\Repositories\\Genres"
   ],
-  "SelectedNode": "\\C:\\Users\\TP-Bluray\\Desktop\\net\\Videotheque",
   "PreviewInSolutionExplorer": false
 }
