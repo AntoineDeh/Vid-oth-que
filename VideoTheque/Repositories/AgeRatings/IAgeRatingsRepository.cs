@@ -1,8 +1,8 @@
 ﻿using VideoTheque.DTOs;
 
-namespace VideoTheque.Repositories.AgeRating
+namespace VideoTheque.Repositories.AgeRatings
 {
-    public interface IAgeRatingRepository
+    public interface IAgeRatingsRepository
     {
         Task<List<AgeRatingDto>> GetAgeRatings();
 
