@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y+L2o0mEJUoNiuvtimvVGvmvpTDC4Vgo+fKqRg+PSRYOxog5lBJDKno5T9jVlZ2YxKS4Vy5ItZDK9s0Eu6WiAQ==",
+  "dgSpecHash": "Lsjxy1MqTzTDDGE0CIypF8SyPCBjA49HR+YNDdajy57y4YM5+6lVWWTQYTFvHq7tSw7AkcpHHPF+dSiZiJZr5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\VideoTheque.csproj",
+  "projectFilePath": "C:\\Users\\TP-Bluray\\Desktop\\net\\Videotheque\\VideoTheque\\VideoTheque.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TP-Bluray\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\TP-Bluray\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
