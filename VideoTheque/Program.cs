@@ -33,13 +33,16 @@ builder.Services.AddScoped(typeof(IAgeRatingsBusiness), typeof(AgeRatingsBusines
 builder.Services.AddScoped(typeof(IPersonnesRepository), typeof(PersonnesRepository));
 builder.Services.AddScoped(typeof(IPersonnesBusiness), typeof(PersonnesBusiness));
 
+/*builder.Services.AddScoped(typeof(ISupportsRepository), typeof(SupportsRepository));
+builder.Services.AddScoped(typeof(ISupportsBusiness), typeof(SupportsBusiness));*/
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "VidéoThéque API",
+        Title = "Vidï¿½oThï¿½que API",
         Description = "Gestion de sa collection de film.",
         Version = "v1"
     });
@@ -61,7 +64,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "VidéoThèque API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vidï¿½oThï¿½que API V1");
     });
 }
 
