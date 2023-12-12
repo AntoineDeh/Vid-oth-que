@@ -3,9 +3,7 @@
     using Mapster;
     using Microsoft.AspNetCore.Mvc;
     using VideoTheque.Businesses.AgeRatings;
-    using VideoTheque.Businesses.Genres;
     using VideoTheque.DTOs;
-    using VideoTheque.Repositories.AgeRatings;
     using VideoTheque.ViewModels;
 
     [ApiController]
@@ -28,7 +26,7 @@
         public async Task<AgeRatingsViewModel> GetAgeRating([FromRoute] int id) => _ageRatingsBusiness.GetAgeRating(id).Adapt<AgeRatingsViewModel>();
 
         [HttpPost]
-        public async Task<IResult> InsentAgeRating([FromBody] AgeRatingsViewModel ageRatingVM)
+        public async Task<IResult> InsertAgeRating([FromBody] AgeRatingsViewModel ageRatingVM)
         {
             var created = _ageRatingsBusiness.InsertAgeRating(ageRatingVM.Adapt<AgeRatingDto>());
             return Results.Created($"/age-ratings/{created.Id}", created);
