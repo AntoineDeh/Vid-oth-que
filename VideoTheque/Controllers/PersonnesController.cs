@@ -20,6 +20,7 @@
             _logger = logger;
         }
 
+
         [HttpGet]
         public async Task<List<PersonneViewModel>> GetPersonnes() => (await _personnesBusiness.GetPersonnes()).Adapt<List<PersonneViewModel>>();
 

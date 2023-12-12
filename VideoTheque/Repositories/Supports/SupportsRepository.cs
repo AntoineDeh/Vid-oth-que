@@ -1,52 +1,54 @@
-using Microsoft.EntityFrameworkCore;
-using VideoTheque.Context;
 using VideoTheque.DTOs;
 
-/*namespace VideoTheque.Repositories.Supports
+namespace VideoTheque.Repositories.Supports
 {
     public class SupportsRepository : ISupportsRepository
     {
-        private readonly VideothequeDb _db;
-        public SupportsRepository(VideothequeDb db)
+        public enum Supports
         {
-            _db = db;
+            bluray = 1,
+            VHS = 2,
+            Dematerialise = 3
         }
 
-        public Task<List<SupportsDto>> GetSupports() => _db.Supports.ToListAsync();
-
-        public ValueTask<SupportsDto?> GetSupports(int id) => _db.Supports.FindAsync(id);
-
-        public Task InsertSupport(SupportsDto support)
+        public Task<List<SupportsDto>> GetSupports()
         {
-            _db.Supports.AddAsync(support);
-            return _db.SaveChangesAsync();
+            var supportsDtos = Enum.GetValues(typeof(Supports))
+                .Cast<Supports>()
+                .Select(support => new SupportsDto
+                {
+                    Id = (int)support,
+                    Name = support.ToString()
+                })
+                .ToList();
+
+            return Task.FromResult(supportsDtos);
         }
 
-        public Task UpdateSupport(int id, SupportsDto support)
+        public ValueTask<SupportsDto?> GetSupport(int id)
         {
-            var supportToUpdate = _db.Supports.FindAsync(id).Result;
+            var support = Enum.GetValues(typeof(Supports))
+                .Cast<Supports>()
+                .FirstOrDefault(s => (int)s == id);
 
-            if (supportToUpdate is null)
+            if (support != 0)
             {
-                throw new KeyNotFoundException($"Support '{id}' non trouvé");
+                var supportDto = new SupportsDto
+                {
+                    Id = (int)support,
+                    Name = support.ToString()
+                };
+                return new ValueTask<SupportsDto?>(supportDto);
             }
-
-            supportToUpdate.Name = support.Name;
-
-            return _db.SaveChangesAsync();
-        }
-
-        public Task DeleteSupport(int id)
-        {
-            var supportToDelete = _db.Supports.FindAsync(id).Result;
-            
-            if (supportToDelete is null)
+            else
             {
-                throw new KeyNotFoundException($"Support '{id}' non trouvé");
+                var supportDto = new SupportsDto
+                {
+                    Id = 0,
+                    Name = null
+                };
+                return new ValueTask<SupportsDto?>(supportDto);
             }
-
-            _db.Supports.Remove(supportToDelete);
-            return _db.SaveChangesAsync();
         }
     }
-}*/
+}

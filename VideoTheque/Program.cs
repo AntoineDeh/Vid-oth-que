@@ -33,8 +33,8 @@ builder.Services.AddScoped(typeof(IAgeRatingsBusiness), typeof(AgeRatingsBusines
 builder.Services.AddScoped(typeof(IPersonnesRepository), typeof(PersonnesRepository));
 builder.Services.AddScoped(typeof(IPersonnesBusiness), typeof(PersonnesBusiness));
 
-/*builder.Services.AddScoped(typeof(ISupportsRepository), typeof(SupportsRepository));
-builder.Services.AddScoped(typeof(ISupportsBusiness), typeof(SupportsBusiness));*/
+builder.Services.AddScoped(typeof(ISupportsRepository), typeof(SupportsRepository));
+builder.Services.AddScoped(typeof(ISupportsBusiness), typeof(SupportsBusiness));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

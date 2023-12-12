@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Businesses\Support\**" />
+    <Content Remove="Businesses\Support\**" />
+    <EmbeddedResource Remove="Businesses\Support\**" />
+    <None Remove="Businesses\Support\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
@@ -20,10 +27,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Businesses\Support\" />
   </ItemGroup>
 
 </Project>
