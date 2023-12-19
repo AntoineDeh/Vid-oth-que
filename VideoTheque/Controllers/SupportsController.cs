@@ -27,25 +27,5 @@ namespace VideoTheque.Controllers
         [HttpGet("{id}")]
         public async Task<SupportsViewModel> GetSupport([FromRoute] int id) => _supportBusiness.GetSupport(id).Adapt<SupportsViewModel>();
 
-        [HttpPost]
-        public async Task<IResult> InsentSupport([FromBody] SupportsViewModel supportVM)
-        {
-            var created = _supportBusiness.InsertSupport(supportVM.Adapt<SupportsDto>());
-            return Results.Created($"/support/{created.Id}", created);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IResult> UpdateSupport([FromRoute] int id, [FromBody] SupportsViewModel supportVM)
-        {
-            _supportBusiness.UpdateSupport(id, supportVM.Adapt<SupportsDto>());
-            return Results.NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IResult> DeleteSupport([FromRoute] int id)
-        {
-            _supportBusiness.DeleteSupport(id);
-            return Results.Ok();
-        }
     }
 }

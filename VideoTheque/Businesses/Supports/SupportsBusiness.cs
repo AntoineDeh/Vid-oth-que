@@ -25,30 +25,5 @@ namespace VideoTheque.Businesses.Supports
             }
             return support;
         }
-
-        public SupportsDto InsertSupport(SupportsDto supports)
-        {
-            if (_supportsDao.InsertSupport(supports).IsFaulted)
-            {
-                throw new InternalErrorException($"Erreur lors de l'insertion de support {supports.Name}");
-            }
-
-            return supports;
-        }
-        public void UpdateSupport(int id, SupportsDto support)
-        {
-            if (_supportsDao.UpdateSupport(id, support).IsFaulted)
-            {
-                throw new InternalErrorException($"Erreur lors de la modification de support {support.Name}");
-            }
-        }
-
-        public void DeleteSupport(int id)
-        {
-            if (_supportsDao.DeleteSupport(id).IsFaulted)
-            {
-                throw new InternalErrorException($"Erreur lors de la suppression de support");
-            }
-        }
     }
 }

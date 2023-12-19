@@ -49,7 +49,7 @@ namespace VideoTheque.Businesses.Personnes
         {
             if (_PersoneDao.DeletePersonne(id).IsFaulted)
             {
-                throw new InternalErrorException($"Erreur lors de la suppression de la personne  identifiante {id}");
+                throw new InternalErrorException($"Erreur lors de la suppression de la personne identifiante {id}");
             }
         }
     }
