@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.OpenApi.Models;
 using VideoTheque.Businesses.AgeRatings;
-using VideoTheque.Businesses.BluRays;
 using VideoTheque.Businesses.Genres;
 using VideoTheque.Businesses.Personnes;
 using VideoTheque.Businesses.Supports;
+using VideoTheque.Businesses.Films;
 using VideoTheque.Context;
 using VideoTheque.Core;
 using VideoTheque.Repositories.AgeRatings;
@@ -12,6 +12,9 @@ using VideoTheque.Repositories.BluRays;
 using VideoTheque.Repositories.Genres;
 using VideoTheque.Repositories.Personnes;
 using VideoTheque.Repositories.Supports;
+using Mapster;
+using System;
+using VideoTheque;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +23,7 @@ var connectionString = builder.Configuration.GetConnectionString("Videotheque") 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.RegisterMapsterConfiguration();
 
 builder.Services.Configure<JsonOptions>(options =>
 {
@@ -41,7 +45,8 @@ builder.Services.AddScoped(typeof(IPersonnesRepository), typeof(PersonnesReposit
 builder.Services.AddScoped(typeof(IPersonnesBusiness), typeof(PersonnesBusiness));
 
 builder.Services.AddScoped(typeof(IBluRaysRepository), typeof(BluRaysRepository));
-builder.Services.AddScoped(typeof(IBluRaysBusiness), typeof(BluRaysBusiness));
+
+builder.Services.AddScoped(typeof(IFilmsBusiness), typeof(FilmsBusiness));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

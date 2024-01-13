@@ -17,6 +17,8 @@ namespace VideoTheque.Repositories.Genres
 
         public ValueTask<GenreDto?> GetGenre(int id) => _db.Genres.FindAsync(id);
 
+        public Task<GenreDto?> GetGenre(string name) => _db.Genres.FirstOrDefaultAsync(p => string.Equals(p.Name, name));
+
         public Task InsertGenre(GenreDto genre) 
         {
             _db.Genres.AddAsync(genre);

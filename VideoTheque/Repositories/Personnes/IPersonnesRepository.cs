@@ -8,6 +8,10 @@ namespace VideoTheque.Repositories.Personnes
 
         ValueTask<PersonneDto?> GetPersonne(int id);
 
+        Task<PersonneDto?> GetPersonne(string firstName, string lastName);
+
+        Task<PersonneDto?> GetPersonne(string fullName);
+
         Task InsertPersonne(PersonneDto personne);
 
         Task UpdatePersonne(int id, PersonneDto personneD);
